@@ -804,6 +804,7 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '赤貝', type: 'general', meaning: 'あかがい/あかいかい' },
   { word: '赤白', type: 'general', meaning: 'あかしろ/あかとしろ' },
   { word: '赤火', type: 'general', meaning: 'あかび/あかいひ' },
+  { word: '赤口', type: 'general', meaning: 'しゃっこう/ろくようのひとつ' },
   { word: '赤青', type: 'general', meaning: 'あかあお/あかとあお' },
   { word: '赤水', type: 'general', meaning: 'あかみず/あかいみず' },
 

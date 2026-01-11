@@ -616,6 +616,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '赤貝', meaning: 'あかがい/あかいかい', type: 'general' },
   { word: '赤白', meaning: 'あかしろ/あかとしろ', type: 'general' },
   { word: '赤火', meaning: 'あかび/あかいひ', type: 'general' },
+  { word: '赤口', meaning: 'しゃっこう/ろくようのひとつ', type: 'general' },
 
   // ===== 千 =====
   { word: '千円', meaning: 'せんえん', type: 'number' },
