@@ -31,7 +31,7 @@ export default function ResultScreen({ result, onPlayAgain }: Props) {
               <li key={index} className={styles.jukugoItem}>
                 <span className={styles.word}>{jukugo.word}</span>
                 <span className={styles.details}>
-                  {jukugo.type === 'surname' ? 'みょうじ' : 'じゅくご'}
+                  {jukugo.type === 'surname' ? 'みょうじ' : jukugo.type === 'number' ? 'すうじ' : 'じゅくご'}
                   {jukugo.hasReverseBonus && ' +ぎゃくボーナス'}
                 </span>
                 <span className={styles.points}>+{jukugo.score}</span>

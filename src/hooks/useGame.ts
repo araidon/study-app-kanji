@@ -125,7 +125,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
 
       if (jukugo) {
         // 正解
-        let earnedScore = jukugo.type === 'surname' ? 1 : 2
+        let earnedScore = jukugo.type === 'general' ? 2 : 1 // general: 2点, surname/number: 1点
         let hasReverseBonus = false
 
         // 逆順ボーナスチェック

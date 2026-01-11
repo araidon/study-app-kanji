@@ -5,14 +5,14 @@ export interface Card {
 
 export interface Jukugo {
   word: string
-  type: 'surname' | 'general'
+  type: 'surname' | 'general' | 'number'
   reverse?: string // 逆順でも意味が通じる場合、その熟語
 }
 
 export interface CompletedJukugo {
   word: string
   score: number
-  type: 'surname' | 'general'
+  type: 'surname' | 'general' | 'number'
   hasReverseBonus: boolean
 }
 
