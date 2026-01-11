@@ -3,7 +3,6 @@ import type { Card, CompletedJukugo, GameResult } from '../types'
 import { FIRST_GRADE_KANJI } from '../data/kanji'
 import { JUKUGO_MAP } from '../data/jukugo'
 
-const GAME_DURATION = 180 // 3分 = 180秒
 const HAND_SIZE = 16
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -23,12 +22,12 @@ function createDeck(): Card[] {
   }))
 }
 
-export function useGame(onGameEnd: (result: GameResult) => void) {
+export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: number) {
   const [deck, setDeck] = useState<Card[]>([])
   const [hand, setHand] = useState<Card[]>([])
   const [selectedCards, setSelectedCards] = useState<Card[]>([])
   const [score, setScore] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(GAME_DURATION)
+  const [timeLeft, setTimeLeft] = useState(gameDuration)
   const [completedJukugos, setCompletedJukugos] = useState<CompletedJukugo[]>([])
   const [lastResult, setLastResult] = useState<'correct' | 'incorrect' | null>(null)
   const [lastWord, setLastWord] = useState<string>('')
@@ -49,12 +48,12 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
     setHand(initialHand)
     setSelectedCards([])
     setScore(0)
-    setTimeLeft(GAME_DURATION)
+    setTimeLeft(gameDuration)
     setCompletedJukugos([])
     setLastResult(null)
     setLastWord('')
     setLastMeaning('')
-  }, [])
+  }, [gameDuration])
 
   // ゲーム終了処理
   const endGame = useCallback(() => {

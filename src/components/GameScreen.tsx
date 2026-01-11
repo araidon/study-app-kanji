@@ -4,9 +4,10 @@ import styles from './GameScreen.module.css'
 
 interface Props {
   onGameEnd: (result: GameResult) => void
+  gameDuration: number
 }
 
-export default function GameScreen({ onGameEnd }: Props) {
+export default function GameScreen({ onGameEnd, gameDuration }: Props) {
   const {
     hand,
     selectedCards,
@@ -20,7 +21,7 @@ export default function GameScreen({ onGameEnd }: Props) {
     discardCard,
     discardAll,
     endGame,
-  } = useGame(onGameEnd)
+  } = useGame(onGameEnd, gameDuration)
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)

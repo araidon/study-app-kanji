@@ -6,11 +6,15 @@ import type { GameResult } from './types'
 
 type Screen = 'title' | 'game' | 'result'
 
+const DEFAULT_DURATION = 5 * 60 // 5分
+
 function App() {
   const [screen, setScreen] = useState<Screen>('title')
   const [gameResult, setGameResult] = useState<GameResult | null>(null)
+  const [gameDuration, setGameDuration] = useState(DEFAULT_DURATION)
 
-  const handleStartGame = () => {
+  const handleStartGame = (duration: number) => {
+    setGameDuration(duration)
     setScreen('game')
   }
 
@@ -27,7 +31,7 @@ function App() {
   return (
     <>
       {screen === 'title' && <TitleScreen onStart={handleStartGame} />}
-      {screen === 'game' && <GameScreen onGameEnd={handleGameEnd} />}
+      {screen === 'game' && <GameScreen onGameEnd={handleGameEnd} gameDuration={gameDuration} />}
       {screen === 'result' && gameResult && (
         <ResultScreen result={gameResult} onPlayAgain={handlePlayAgain} />
       )}
