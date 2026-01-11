@@ -4,7 +4,7 @@ import { FIRST_GRADE_KANJI } from '../data/kanji'
 import { JUKUGO_MAP } from '../data/jukugo'
 
 const GAME_DURATION = 180 // 3分 = 180秒
-const HAND_SIZE = 10
+const HAND_SIZE = 16
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array]
@@ -184,6 +184,18 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
     setLastResult(null)
   }, [selectedCards, hand, deck])
 
+  // 手札をすべて捨てる
+  const discardAll = useCallback(() => {
+    const handCount = hand.length
+    const cardsToAdd = deck.slice(0, handCount)
+    const newDeck = deck.slice(handCount)
+
+    setHand(cardsToAdd)
+    setDeck(newDeck)
+    setSelectedCards([])
+    setLastResult(null)
+  }, [hand, deck])
+
   // 初期化
   useEffect(() => {
     initGame()
@@ -200,5 +212,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
     lastMeaning,
     selectCard,
     discardCard,
+    discardAll,
+    endGame,
   }
 }

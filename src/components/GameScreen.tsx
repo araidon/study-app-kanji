@@ -18,6 +18,8 @@ export default function GameScreen({ onGameEnd }: Props) {
     lastMeaning,
     selectCard,
     discardCard,
+    discardAll,
+    endGame,
   } = useGame(onGameEnd)
 
   const formatTime = (seconds: number) => {
@@ -78,15 +80,30 @@ export default function GameScreen({ onGameEnd }: Props) {
         </div>
       </div>
 
-      {/* ゴミ箱エリア */}
-      <div className={styles.trashArea}>
+      {/* アクションエリア */}
+      <div className={styles.actionArea}>
         <button
-          className={`${styles.trashButton} ${selectedCard ? styles.active : ''}`}
+          className={`${styles.actionButton} ${selectedCard ? styles.active : ''}`}
           onClick={() => selectedCard && discardCard(selectedCard)}
           disabled={!selectedCard}
         >
-          <span className={styles.trashIcon}>🗑</span>
-          <span className={styles.trashLabel}>すてる</span>
+          <span className={styles.actionIcon}>🗑</span>
+          <span className={styles.actionLabel}>すてる</span>
+        </button>
+        <button
+          className={`${styles.actionButton} ${styles.discardAll}`}
+          onClick={discardAll}
+          disabled={deckCount < hand.length}
+        >
+          <span className={styles.actionIcon}>🔄</span>
+          <span className={styles.actionLabel}>ぜんぶすてる</span>
+        </button>
+        <button
+          className={`${styles.actionButton} ${styles.endGame}`}
+          onClick={endGame}
+        >
+          <span className={styles.actionIcon}>🏁</span>
+          <span className={styles.actionLabel}>おわる</span>
         </button>
       </div>
     </div>

@@ -85,11 +85,11 @@
 
 .handGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
   width: 100%;
-  max-width: 400px;
+  max-width: 320px;
 }
 
 /* カード */
@@ -119,20 +119,21 @@
   transform: scale(1.05);
 }
 
-/* ゴミ箱エリア */
-.trashArea {
-  padding: 20px;
+/* アクションエリア */
+.actionArea {
+  padding: 16px 20px;
   display: flex;
   justify-content: center;
+  gap: 16px;
 }
 
-.trashButton {
+.actionButton {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
   background: #e9ecef;
   border: 2px dashed #adb5bd;
   border-radius: 16px;
@@ -140,23 +141,39 @@
   transition: all 0.2s;
 }
 
-.trashButton:disabled {
+.actionButton:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.trashButton.active {
+.actionButton.active {
   background: #fff3cd;
   border-color: #ffc107;
   border-style: solid;
 }
 
-.trashIcon {
-  font-size: 1.5rem;
+.actionButton.discardAll {
+  background: #e3f2fd;
+  border-color: #2196f3;
+  border-style: solid;
 }
 
-.trashLabel {
-  font-size: 0.75rem;
+.actionButton.discardAll:disabled {
+  opacity: 0.5;
+}
+
+.actionButton.endGame {
+  background: #ffebee;
+  border-color: #f44336;
+  border-style: solid;
+}
+
+.actionIcon {
+  font-size: 1.3rem;
+}
+
+.actionLabel {
+  font-size: 0.65rem;
   color: #666;
-  margin-top: 4px;
+  margin-top: 2px;
 }
