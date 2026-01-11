@@ -98,7 +98,8 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
   }, [timeLeft, endGame])
 
   useEffect(() => {
-    if (gameStartedRef.current && deck.length === 0 && hand.length < HAND_SIZE) {
+    // 山札も手札もなくなったら終了
+    if (gameStartedRef.current && deck.length === 0 && hand.length === 0) {
       endGame()
     }
   }, [deck.length, hand.length, endGame])
