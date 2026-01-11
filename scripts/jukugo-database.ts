@@ -1128,7 +1128,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '川月', meaning: 'かわつき', type: 'surname' },
   { word: '川見', meaning: 'かわみ', type: 'surname' },
   { word: '川子', meaning: 'かわこ', type: 'surname' },
-  { word: '川先', meaning: 'かわさき/かながわけんのちめい', type: 'general' },
   { word: '大年', meaning: 'おおとし/おおみそか', type: 'general' },
   { word: '男田', meaning: 'おだ', type: 'surname' },
   { word: '男川', meaning: 'おがわ', type: 'surname' },

@@ -1,7 +1,7 @@
 import type { Jukugo } from '../types'
 
 // Auto-generated from scripts/jukugo-database.ts
-// Total entries: 1044
+// Total entries: 1043
 
 export const JUKUGO_LIST: Jukugo[] = [
   { word: '一円', meaning: 'いちえん', type: 'number' },
@@ -962,7 +962,6 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '川月', meaning: 'かわつき', type: 'surname' },
   { word: '川見', meaning: 'かわみ', type: 'surname' },
   { word: '川子', meaning: 'かわこ', type: 'surname' },
-  { word: '川先', meaning: 'かわさき/かながわけんのちめい', type: 'general' },
   { word: '大年', meaning: 'おおとし/おおみそか', type: 'general' },
   { word: '男田', meaning: 'おだ', type: 'surname' },
   { word: '男川', meaning: 'おがわ', type: 'surname' },
