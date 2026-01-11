@@ -33,8 +33,17 @@
   color: #333;
 }
 
+/* 結果バナーエリア（固定高さ） */
+.resultArea {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 結果バナー */
 .resultBanner {
+  width: 100%;
   padding: 12px;
   text-align: center;
   font-size: 1.2rem;

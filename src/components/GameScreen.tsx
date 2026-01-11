@@ -48,19 +48,21 @@ export default function GameScreen({ onGameEnd }: Props) {
         </div>
       </div>
 
-      {/* 結果表示 */}
-      {lastResult && (
-        <div className={`${styles.resultBanner} ${styles[lastResult]}`}>
-          {lastResult === 'correct' ? (
-            <>
-              <div className={styles.resultWord}>「{lastWord}」せいかい!</div>
-              <div className={styles.resultMeaning}>{lastMeaning}</div>
-            </>
-          ) : (
-            <span>「{lastWord}」ざんねん...</span>
-          )}
-        </div>
-      )}
+      {/* 結果表示エリア（固定高さ） */}
+      <div className={styles.resultArea}>
+        {lastResult && (
+          <div className={`${styles.resultBanner} ${styles[lastResult]}`}>
+            {lastResult === 'correct' ? (
+              <>
+                <div className={styles.resultWord}>「{lastWord}」せいかい!</div>
+                <div className={styles.resultMeaning}>{lastMeaning}</div>
+              </>
+            ) : (
+              <span>「{lastWord}」ざんねん...</span>
+            )}
+          </div>
+        )}
+      </div>
 
       {/* 手札エリア - 2行5列 */}
       <div className={styles.handArea}>
