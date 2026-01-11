@@ -117,8 +117,14 @@
   color: #667eea;
 }
 
-.playAgainButton {
+.buttonArea {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   margin-top: 24px;
+}
+
+.playAgainButton {
   padding: 16px 40px;
   font-size: 1.3rem;
   font-weight: bold;
@@ -134,4 +140,21 @@
 .playAgainButton:active {
   transform: scale(0.95);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.backToTitleButton {
+  padding: 12px 36px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.backToTitleButton:active {
+  transform: scale(0.95);
+  background: rgba(255, 255, 255, 0.1);
 }

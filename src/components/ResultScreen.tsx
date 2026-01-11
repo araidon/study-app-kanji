@@ -4,9 +4,10 @@ import styles from './ResultScreen.module.css'
 interface Props {
   result: GameResult
   onPlayAgain: () => void
+  onBackToTitle: () => void
 }
 
-export default function ResultScreen({ result, onPlayAgain }: Props) {
+export default function ResultScreen({ result, onPlayAgain, onBackToTitle }: Props) {
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>けっか</h1>
@@ -42,9 +43,14 @@ export default function ResultScreen({ result, onPlayAgain }: Props) {
         </div>
       )}
 
-      <button className={styles.playAgainButton} onClick={onPlayAgain}>
-        もういちど あそぶ
-      </button>
+      <div className={styles.buttonArea}>
+        <button className={styles.playAgainButton} onClick={onPlayAgain}>
+          もういちど あそぶ
+        </button>
+        <button className={styles.backToTitleButton} onClick={onBackToTitle}>
+          タイトルにもどる
+        </button>
+      </div>
     </div>
   )
 }

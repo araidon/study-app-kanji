@@ -29,6 +29,11 @@ function App() {
 
   const handlePlayAgain = () => {
     setGameResult(null)
+    setScreen('game')
+  }
+
+  const handleBackToTitle = () => {
+    setGameResult(null)
     setScreen('title')
   }
 
@@ -46,7 +51,7 @@ function App() {
       {screen === 'help' && <HelpScreen onBack={handleBackFromHelp} />}
       {screen === 'game' && <GameScreen onGameEnd={handleGameEnd} gameDuration={gameDuration} hintSettings={hintSettings} />}
       {screen === 'result' && gameResult && (
-        <ResultScreen result={gameResult} onPlayAgain={handlePlayAgain} />
+        <ResultScreen result={gameResult} onPlayAgain={handlePlayAgain} onBackToTitle={handleBackToTitle} />
       )}
     </>
   )
