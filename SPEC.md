@@ -120,9 +120,6 @@ src/
 | Build output directory | `dist` |
 | Framework preset | None |
 
-### URL
-https://study-app-kanji.pages.dev/
-
 ---
 
 作成日: 2026-01-11
