@@ -252,7 +252,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '五日', meaning: 'いつか', type: 'number' },
   { word: '五本', meaning: 'ごほん', type: 'number' },
   { word: '五木', meaning: 'いつき', type: 'surname' },
-  { word: '五六', meaning: 'ごろく', type: 'number' },
   { word: '五百', meaning: 'ごひゃく', type: 'number' },
   { word: '五千', meaning: 'ごせん', type: 'number' },
   { word: '五山', meaning: 'ござん/ごつのやま', type: 'general' },
@@ -289,7 +288,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '三日', meaning: 'みっか', type: 'number' },
   { word: '三本', meaning: 'さんぼん', type: 'number' },
   { word: '三木', meaning: 'みき', type: 'surname' },
-  { word: '三四', meaning: 'さんし', type: 'number' },
   { word: '三百', meaning: 'さんびゃく', type: 'number' },
   { word: '三千', meaning: 'さんぜん', type: 'number' },
 
@@ -333,11 +331,11 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '四十', meaning: 'よんじゅう', type: 'number' },
   { word: '四日', meaning: 'よっか', type: 'number' },
   { word: '四本', meaning: 'よんほん', type: 'number' },
-  { word: '四五', meaning: 'しご', type: 'number' },
   { word: '四百', meaning: 'よんひゃく', type: 'number' },
   { word: '四千', meaning: 'よんせん', type: 'number' },
 
   // ===== 糸 =====
+  { word: '糸車', meaning: 'いとぐるま/いとをつむぐどうぐ', type: 'general' },
   { word: '糸口', meaning: 'いとぐち/はじまり', type: 'general' },
   { word: '糸目', meaning: 'いとめ/いとのあと', type: 'general' },
   { word: '糸山', meaning: 'いとやま', type: 'surname' },
@@ -362,7 +360,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '七十', meaning: 'ななじゅう', type: 'number' },
   { word: '七日', meaning: 'なのか', type: 'number' },
   { word: '七夕', meaning: 'たなばた/なつのおまつり', type: 'general' },
-  { word: '七八', meaning: 'しちはち', type: 'number' },
   { word: '七百', meaning: 'ななひゃく', type: 'number' },
   { word: '七千', meaning: 'ななせん', type: 'number' },
 
@@ -672,6 +669,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '先金', meaning: 'さきがね/まえばらい', type: 'general' },
 
   // ===== 早 =====
+  { word: '早出', meaning: 'はやで/はやくしゅっきんする', type: 'general' },
   { word: '早口', meaning: 'はやくち/はやくしゃべる', type: 'general' },
   { word: '早足', meaning: 'はやあし/はやくあるく', type: 'general' },
   { word: '早川', meaning: 'はやかわ/はやいかわ', type: 'general' },
@@ -874,7 +872,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '二月', meaning: 'にがつ', type: 'number' },
   { word: '二本', meaning: 'にほん', type: 'number' },
   { word: '二十', meaning: 'にじゅう', type: 'number' },
-  { word: '二三', meaning: 'にさん', type: 'number' },
   { word: '二百', meaning: 'にひゃく', type: 'number' },
   { word: '二千', meaning: 'にせん', type: 'number' },
   { word: '二山', meaning: 'にやま', type: 'surname' },
@@ -951,7 +948,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '八本', meaning: 'はっぽん', type: 'number' },
   { word: '八十', meaning: 'はちじゅう', type: 'number' },
   { word: '八木', meaning: 'やぎ', type: 'surname' },
-  { word: '八九', meaning: 'はっく', type: 'number' },
   { word: '八百', meaning: 'はっぴゃく', type: 'number' },
   { word: '八千', meaning: 'はっせん', type: 'number' },
   { word: '八山', meaning: 'やつやま', type: 'surname' },
@@ -1099,7 +1095,6 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '六月', meaning: 'ろくがつ', type: 'number' },
   { word: '六本', meaning: 'ろっぽん', type: 'number' },
   { word: '六十', meaning: 'ろくじゅう', type: 'number' },
-  { word: '六七', meaning: 'ろくしち', type: 'number' },
   { word: '六百', meaning: 'ろっぴゃく', type: 'number' },
   { word: '六千', meaning: 'ろくせん', type: 'number' },
 
