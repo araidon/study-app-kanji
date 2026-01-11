@@ -32,9 +32,16 @@ src/
 │   └── ResultScreen  # Score display, jukugo list with meanings
 ├── data/
 │   ├── kanji.ts      # 80 grade-1 kanji characters
-│   └── jukugo.ts     # Compound word dictionary (~550 entries) with JUKUGO_MAP
+│   └── jukugo.ts     # Compound word dictionary (1,197 entries) with JUKUGO_MAP
 └── hooks/
     └── useGame.ts    # Core game engine (timer, scoring, card management)
+
+scripts/
+├── jukugo-database.ts    # Master jukugo database (source of truth)
+└── generate-valid-csv.ts # Generate CSV from database
+
+data/
+└── jukugo-reference.csv  # 80×79 combinations reference (6,320 entries)
 ```
 
 **Key patterns:**
@@ -63,6 +70,31 @@ src/
 - Safe area insets for notch handling
 - Touch optimizations (no overscroll, no highlight, no select)
 - Scrollable title screen for smaller devices
+
+## Jukugo Database Management
+
+**Master database**: `scripts/jukugo-database.ts`
+- Contains 1,197 valid jukugo entries
+- Format: `{ word: '熟語', meaning: 'よみがな' or 'よみがな/意味', type: 'general' | 'surname' | 'number' }`
+
+**Update workflow**:
+1. Edit `scripts/jukugo-database.ts` to add/modify entries
+2. Run script to regenerate game data:
+   ```bash
+   npx tsx -e "
+   import { FIRST_GRADE_KANJI } from './src/data/kanji'
+   import { JUKUGO_DATABASE } from './scripts/jukugo-database'
+   // ... generate src/data/jukugo.ts
+   "
+   ```
+3. Regenerate reference CSV: `npx tsx scripts/generate-valid-csv.ts > data/jukugo-reference.csv`
+
+**Statistics** (as of 2025-01):
+- Total combinations: 6,320 (80×79)
+- Valid jukugo: 1,197 (18.9%)
+  - General: 794
+  - Surname: 297
+  - Number: 106
 
 ## Deployment
 
