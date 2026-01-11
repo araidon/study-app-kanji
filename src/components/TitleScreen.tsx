@@ -85,8 +85,7 @@ export default function TitleScreen({ onStart }: Props) {
         <h3>とくてん</h3>
         <ul>
           <li>じゅくご: 2てん</li>
-          <li>みょうじ・すうじ: 1てん</li>
-          <li>ぎゃくじゅんボーナス: +2てん</li>
+          <li>すうじ: 1てん</li>
         </ul>
         <h3>ボタン</h3>
         <ul>

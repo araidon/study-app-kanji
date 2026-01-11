@@ -113,13 +113,14 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     }
   }, [deck.length, hand.length, endGame])
 
-  // 有効なペアを見つける
+  // 有効なペアを見つける（名字は除外）
   const findValidPairs = useCallback((): number[] => {
     for (let i = 0; i < hand.length; i++) {
       for (let j = 0; j < hand.length; j++) {
         if (i === j) continue
         const word = hand[i].kanji + hand[j].kanji
-        if (JUKUGO_MAP.has(word)) {
+        const jukugo = JUKUGO_MAP.get(word)
+        if (jukugo && jukugo.type !== 'surname') {
           return [hand[i].id, hand[j].id]
         }
       }
@@ -180,16 +181,9 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
       const word = firstCard.kanji + card.kanji
       const jukugo = JUKUGO_MAP.get(word)
 
-      if (jukugo) {
-        // 正解
-        let earnedScore = jukugo.type === 'general' ? 2 : 1 // general: 2点, surname/number: 1点
-        let hasReverseBonus = false
-
-        // 逆順ボーナスチェック
-        if (jukugo.reverse) {
-          earnedScore += 2
-          hasReverseBonus = true
-        }
+      // 正解: 熟語が存在し、名字以外の場合
+      if (jukugo && jukugo.type !== 'surname') {
+        const earnedScore = jukugo.type === 'general' ? 2 : 1 // general: 2点, number: 1点
 
         setScore(prev => prev + earnedScore)
         setCompletedJukugos(prev => [...prev, {
@@ -197,7 +191,6 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
           score: earnedScore,
           type: jukugo.type,
           meaning: jukugo.meaning,
-          hasReverseBonus,
         }])
 
         // カードを手札から削除して補充
@@ -212,7 +205,7 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
         setLastWord(word)
         setLastMeaning(jukugo.meaning)
       } else {
-        // 不正解
+        // 不正解（熟語がない、または名字の場合）
         setSelectedCards([])
         setLastResult('incorrect')
         setLastWord(word)

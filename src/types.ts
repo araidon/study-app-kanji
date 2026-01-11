@@ -15,7 +15,6 @@ export interface CompletedJukugo {
   score: number
   type: 'surname' | 'general' | 'number'
   meaning: string
-  hasReverseBonus: boolean
 }
 
 export interface GameResult {
