@@ -34,10 +34,12 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
   const [lastWord, setLastWord] = useState<string>('')
   const timerRef = useRef<number | null>(null)
   const gameEndedRef = useRef(false)
+  const gameStartedRef = useRef(false)
 
   // ゲーム初期化
   const initGame = useCallback(() => {
     gameEndedRef.current = false
+    gameStartedRef.current = true
     const newDeck = createDeck()
     const initialHand = newDeck.slice(0, HAND_SIZE)
     const remainingDeck = newDeck.slice(HAND_SIZE)
@@ -94,7 +96,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
   }, [timeLeft, endGame])
 
   useEffect(() => {
-    if (deck.length === 0 && hand.length < HAND_SIZE) {
+    if (gameStartedRef.current && deck.length === 0 && hand.length < HAND_SIZE) {
       endGame()
     }
   }, [deck.length, hand.length, endGame])
