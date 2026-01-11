@@ -52,6 +52,17 @@
   color: #721c24;
 }
 
+.resultWord {
+  font-size: 1.2rem;
+}
+
+.resultMeaning {
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: 4px;
+  opacity: 0.9;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

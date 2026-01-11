@@ -29,12 +29,13 @@ export default function ResultScreen({ result, onPlayAgain }: Props) {
           <ul>
             {result.completedJukugos.map((jukugo, index) => (
               <li key={index} className={styles.jukugoItem}>
-                <span className={styles.word}>{jukugo.word}</span>
-                <span className={styles.details}>
-                  {jukugo.type === 'surname' ? 'みょうじ' : jukugo.type === 'number' ? 'すうじ' : 'じゅくご'}
-                  {jukugo.hasReverseBonus && ' +ぎゃくボーナス'}
-                </span>
-                <span className={styles.points}>+{jukugo.score}</span>
+                <div className={styles.jukugoMain}>
+                  <span className={styles.word}>{jukugo.word}</span>
+                  <span className={styles.points}>+{jukugo.score}</span>
+                </div>
+                <div className={styles.jukugoSub}>
+                  <span className={styles.meaning}>{jukugo.meaning}</span>
+                </div>
               </li>
             ))}
           </ul>

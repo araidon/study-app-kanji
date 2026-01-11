@@ -15,6 +15,7 @@ export default function GameScreen({ onGameEnd }: Props) {
     deckCount,
     lastResult,
     lastWord,
+    lastMeaning,
     selectCard,
     discardCard,
   } = useGame(onGameEnd)
@@ -49,7 +50,10 @@ export default function GameScreen({ onGameEnd }: Props) {
       {lastResult && (
         <div className={`${styles.resultBanner} ${styles[lastResult]}`}>
           {lastResult === 'correct' ? (
-            <span>「{lastWord}」せいかい!</span>
+            <>
+              <div className={styles.resultWord}>「{lastWord}」せいかい!</div>
+              <div className={styles.resultMeaning}>{lastMeaning}</div>
+            </>
           ) : (
             <span>「{lastWord}」ざんねん...</span>
           )}

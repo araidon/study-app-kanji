@@ -32,6 +32,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
   const [completedJukugos, setCompletedJukugos] = useState<CompletedJukugo[]>([])
   const [lastResult, setLastResult] = useState<'correct' | 'incorrect' | null>(null)
   const [lastWord, setLastWord] = useState<string>('')
+  const [lastMeaning, setLastMeaning] = useState<string>('')
   const timerRef = useRef<number | null>(null)
   const gameEndedRef = useRef(false)
   const gameStartedRef = useRef(false)
@@ -52,6 +53,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
     setCompletedJukugos([])
     setLastResult(null)
     setLastWord('')
+    setLastMeaning('')
   }, [])
 
   // ゲーム終了処理
@@ -139,6 +141,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
           word,
           score: earnedScore,
           type: jukugo.type,
+          meaning: jukugo.meaning,
           hasReverseBonus,
         }])
 
@@ -152,11 +155,13 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
         setSelectedCards([])
         setLastResult('correct')
         setLastWord(word)
+        setLastMeaning(jukugo.meaning)
       } else {
         // 不正解
         setSelectedCards([])
         setLastResult('incorrect')
         setLastWord(word)
+        setLastMeaning('')
       }
     }
   }, [selectedCards, hand, deck])
@@ -192,6 +197,7 @@ export function useGame(onGameEnd: (result: GameResult) => void) {
     deckCount: deck.length,
     lastResult,
     lastWord,
+    lastMeaning,
     selectCard,
     discardCard,
   }
