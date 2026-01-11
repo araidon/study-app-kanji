@@ -1,0 +1,151 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #f0f4f8;
+}
+
+/* 情報バー */
+.infoBar {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoLabel {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.infoValue {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 結果バナー */
+.resultBanner {
+  padding: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.resultBanner.correct {
+  background: #d4edda;
+  color: #155724;
+}
+
+.resultBanner.incorrect {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 手札エリア */
+.handArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.handGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* カード */
+.card {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  background: white;
+  border: 3px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.card:active {
+  transform: scale(0.95);
+}
+
+.card.selected {
+  border-color: #667eea;
+  background: #eef1ff;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.3);
+  transform: scale(1.05);
+}
+
+/* ゴミ箱エリア */
+.trashArea {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.trashButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #e9ecef;
+  border: 2px dashed #adb5bd;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.trashButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.trashButton.active {
+  background: #fff3cd;
+  border-color: #ffc107;
+  border-style: solid;
+}
+
+.trashIcon {
+  font-size: 1.5rem;
+}
+
+.trashLabel {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+}

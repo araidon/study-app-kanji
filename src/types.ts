@@ -1,0 +1,22 @@
+export interface Card {
+  id: number
+  kanji: string
+}
+
+export interface Jukugo {
+  word: string
+  type: 'surname' | 'general'
+  reverse?: string // 逆順でも意味が通じる場合、その熟語
+}
+
+export interface CompletedJukugo {
+  word: string
+  score: number
+  type: 'surname' | 'general'
+  hasReverseBonus: boolean
+}
+
+export interface GameResult {
+  totalScore: number
+  completedJukugos: CompletedJukugo[]
+}
