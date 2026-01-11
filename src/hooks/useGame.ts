@@ -1,9 +1,10 @@
 import { useState, useCallback, useEffect, useRef } from 'react'
-import type { Card, CompletedJukugo, GameResult } from '../types'
+import type { Card, CompletedJukugo, GameResult, HintSettings } from '../types'
 import { FIRST_GRADE_KANJI } from '../data/kanji'
 import { JUKUGO_MAP } from '../data/jukugo'
 
 const HAND_SIZE = 16
+const HINT_CHECK_INTERVAL = 500 // 500ms
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array]
@@ -22,7 +23,7 @@ function createDeck(): Card[] {
   }))
 }
 
-export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: number) {
+export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: number, hintSettings: HintSettings) {
   const [deck, setDeck] = useState<Card[]>([])
   const [hand, setHand] = useState<Card[]>([])
   const [selectedCards, setSelectedCards] = useState<Card[]>([])
@@ -32,7 +33,10 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
   const [lastResult, setLastResult] = useState<'correct' | 'incorrect' | null>(null)
   const [lastWord, setLastWord] = useState<string>('')
   const [lastMeaning, setLastMeaning] = useState<string>('')
+  const [hintCardIds, setHintCardIds] = useState<number[]>([])
+  const [lastActivityTime, setLastActivityTime] = useState(Date.now())
   const timerRef = useRef<number | null>(null)
+  const hintTimerRef = useRef<number | null>(null)
   const gameEndedRef = useRef(false)
   const gameStartedRef = useRef(false)
 
@@ -53,6 +57,8 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     setLastResult(null)
     setLastWord('')
     setLastMeaning('')
+    setHintCardIds([])
+    setLastActivityTime(Date.now())
   }, [gameDuration])
 
   // ゲーム終了処理
@@ -63,6 +69,10 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     if (timerRef.current) {
       clearInterval(timerRef.current)
       timerRef.current = null
+    }
+    if (hintTimerRef.current) {
+      clearInterval(hintTimerRef.current)
+      hintTimerRef.current = null
     }
 
     onGameEnd({
@@ -103,9 +113,54 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     }
   }, [deck.length, hand.length, endGame])
 
+  // 有効なペアを見つける
+  const findValidPairs = useCallback((): number[] => {
+    for (let i = 0; i < hand.length; i++) {
+      for (let j = 0; j < hand.length; j++) {
+        if (i === j) continue
+        const word = hand[i].kanji + hand[j].kanji
+        if (JUKUGO_MAP.has(word)) {
+          return [hand[i].id, hand[j].id]
+        }
+      }
+    }
+    return []
+  }, [hand])
+
+  // ヒントタイマー
+  useEffect(() => {
+    if (!hintSettings.enabled) {
+      setHintCardIds([])
+      return
+    }
+
+    hintTimerRef.current = window.setInterval(() => {
+      const elapsed = Date.now() - lastActivityTime
+      if (elapsed >= hintSettings.delay * 1000) {
+        const validPair = findValidPairs()
+        setHintCardIds(validPair)
+      } else {
+        setHintCardIds([])
+      }
+    }, HINT_CHECK_INTERVAL)
+
+    return () => {
+      if (hintTimerRef.current) {
+        clearInterval(hintTimerRef.current)
+      }
+    }
+  }, [hintSettings.enabled, hintSettings.delay, lastActivityTime, findValidPairs])
+
+  // アクティビティをリセット
+  const resetActivity = useCallback(() => {
+    setLastActivityTime(Date.now())
+    setHintCardIds([])
+  }, [])
+
   // カード選択
   const selectCard = useCallback((card: Card) => {
     setLastResult(null)
+    resetActivity()
 
     // 既に選択されているカードをタップした場合は選択解除
     if (selectedCards.some(c => c.id === card.id)) {
@@ -164,11 +219,12 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
         setLastMeaning('')
       }
     }
-  }, [selectedCards, hand, deck])
+  }, [selectedCards, hand, deck, resetActivity])
 
   // カードを捨てる
   const discardCard = useCallback((card: Card) => {
     if (!selectedCards.some(c => c.id === card.id)) return
+    resetActivity()
 
     const newHand = hand.filter(c => c.id !== card.id)
     const cardToAdd = deck[0]
@@ -182,10 +238,11 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     setDeck(newDeck)
     setSelectedCards([])
     setLastResult(null)
-  }, [selectedCards, hand, deck])
+  }, [selectedCards, hand, deck, resetActivity])
 
   // 手札をすべて捨てる
   const discardAll = useCallback(() => {
+    resetActivity()
     const handCount = hand.length
     const cardsToAdd = deck.slice(0, handCount)
     const newDeck = deck.slice(handCount)
@@ -194,7 +251,7 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     setDeck(newDeck)
     setSelectedCards([])
     setLastResult(null)
-  }, [hand, deck])
+  }, [hand, deck, resetActivity])
 
   // 初期化
   useEffect(() => {
@@ -210,6 +267,7 @@ export function useGame(onGameEnd: (result: GameResult) => void, gameDuration: n
     lastResult,
     lastWord,
     lastMeaning,
+    hintCardIds,
     selectCard,
     discardCard,
     discardAll,

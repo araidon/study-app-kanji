@@ -22,3 +22,8 @@ export interface GameResult {
   totalScore: number
   completedJukugos: CompletedJukugo[]
 }
+
+export interface HintSettings {
+  enabled: boolean
+  delay: number
+}

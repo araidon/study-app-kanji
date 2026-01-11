@@ -1,13 +1,14 @@
 import { useGame } from '../hooks/useGame'
-import type { GameResult } from '../types'
+import type { GameResult, HintSettings } from '../types'
 import styles from './GameScreen.module.css'
 
 interface Props {
   onGameEnd: (result: GameResult) => void
   gameDuration: number
+  hintSettings: HintSettings
 }
 
-export default function GameScreen({ onGameEnd, gameDuration }: Props) {
+export default function GameScreen({ onGameEnd, gameDuration, hintSettings }: Props) {
   const {
     hand,
     selectedCards,
@@ -17,11 +18,12 @@ export default function GameScreen({ onGameEnd, gameDuration }: Props) {
     lastResult,
     lastWord,
     lastMeaning,
+    hintCardIds,
     selectCard,
     discardCard,
     discardAll,
     endGame,
-  } = useGame(onGameEnd, gameDuration)
+  } = useGame(onGameEnd, gameDuration, hintSettings)
 
   const formatTime = (seconds: number) => {
     const mins = Math.floor(seconds / 60)
@@ -70,10 +72,11 @@ export default function GameScreen({ onGameEnd, gameDuration }: Props) {
         <div className={styles.handGrid}>
           {hand.map((card) => {
             const isSelected = selectedCards.some(c => c.id === card.id)
+            const isHint = hintCardIds.includes(card.id)
             return (
               <button
                 key={card.id}
-                className={`${styles.card} ${isSelected ? styles.selected : ''}`}
+                className={`${styles.card} ${isSelected ? styles.selected : ''} ${isHint ? styles.hint : ''}`}
                 onClick={() => selectCard(card)}
               >
                 {card.kanji}

@@ -1,17 +1,25 @@
 import { useState } from 'react'
 import styles from './TitleScreen.module.css'
 
+interface HintSettings {
+  enabled: boolean
+  delay: number
+}
+
 interface Props {
-  onStart: (duration: number) => void
+  onStart: (duration: number, hintSettings: HintSettings) => void
 }
 
 const DEFAULT_MINUTES = 5
+const DEFAULT_HINT_DELAY = 20
 
 export default function TitleScreen({ onStart }: Props) {
   const [minutes, setMinutes] = useState(DEFAULT_MINUTES)
+  const [hintEnabled, setHintEnabled] = useState(true)
+  const [hintDelay, setHintDelay] = useState(DEFAULT_HINT_DELAY)
 
   const handleStart = () => {
-    onStart(minutes * 60)
+    onStart(minutes * 60, { enabled: hintEnabled, delay: hintDelay })
   }
 
   return (
@@ -33,6 +41,37 @@ export default function TitleScreen({ onStart }: Props) {
           <span>1ふん</span>
           <span>10ふん</span>
         </div>
+      </div>
+
+      <div className={styles.hintSelector}>
+        <div className={styles.hintToggle}>
+          <span className={styles.hintToggleLabel}>ヒント</span>
+          <button
+            className={`${styles.toggleButton} ${hintEnabled ? styles.toggleOn : styles.toggleOff}`}
+            onClick={() => setHintEnabled(!hintEnabled)}
+          >
+            <span className={styles.toggleKnob} />
+            <span className={styles.toggleText}>{hintEnabled ? 'ON' : 'OFF'}</span>
+          </button>
+        </div>
+        {hintEnabled && (
+          <div className={styles.hintDelaySection}>
+            <label className={styles.hintDelayLabel}>{hintDelay}びょうご</label>
+            <input
+              type="range"
+              min="5"
+              max="60"
+              step="5"
+              value={hintDelay}
+              onChange={(e) => setHintDelay(Number(e.target.value))}
+              className={styles.hintSlider}
+            />
+            <div className={styles.hintRange}>
+              <span>5びょう</span>
+              <span>60びょう</span>
+            </div>
+          </div>
+        )}
       </div>
 
       <button className={styles.startButton} onClick={handleStart}>
