@@ -35,6 +35,14 @@
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+.sectionDescription {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  text-align: center;
+  margin: 0;
+}
+
 /* 画面デモ */
 .screenDemo {
   background: #f0f4f8;
