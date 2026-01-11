@@ -173,6 +173,15 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '九十', type: 'number', meaning: 'きゅうじゅう' },
   { word: '九百', type: 'number', meaning: 'きゅうひゃく' },
   { word: '九千', type: 'number', meaning: 'きゅうせん' },
+  { word: '九円', type: 'number', meaning: 'きゅうえん' },
+  { word: '九年', type: 'number', meaning: 'きゅうねん' },
+  { word: '九本', type: 'number', meaning: 'きゅうほん' },
+  { word: '九名', type: 'number', meaning: 'きゅうめい' },
+  { word: '九目', type: 'number', meaning: 'きゅうめ' },
+  { word: '九手', type: 'number', meaning: 'きゅうて' },
+  { word: '九口', type: 'number', meaning: 'きゅうくち' },
+  { word: '九文', type: 'number', meaning: 'きゅうもん' },
+  { word: '九石', type: 'number', meaning: 'きゅうこく' },
 
   // ========== 休 ==========
   { word: '休火', type: 'general', meaning: 'きゅうか/きゅうかざん' },
@@ -301,6 +310,13 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '五千', type: 'number', meaning: 'ごせん' },
   { word: '五山', type: 'general', meaning: 'ござん/ごつのやま' },
   { word: '五田', type: 'surname', meaning: 'ごた' },
+  { word: '五年', type: 'number', meaning: 'ごねん' },
+  { word: '五名', type: 'number', meaning: 'ごめい' },
+  { word: '五目', type: 'number', meaning: 'ごめ' },
+  { word: '五手', type: 'number', meaning: 'ごて' },
+  { word: '五口', type: 'number', meaning: 'ごくち' },
+  { word: '五文', type: 'number', meaning: 'ごもん' },
+  { word: '五石', type: 'number', meaning: 'ごこく' },
 
   // ========== 口 ==========
   { word: '口火', type: 'general', meaning: 'くちび/はじまり' },
@@ -340,6 +356,14 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '三四', type: 'number', meaning: 'さんし' },
   { word: '三百', type: 'number', meaning: 'さんびゃく' },
   { word: '三千', type: 'number', meaning: 'さんぜん' },
+  { word: '三円', type: 'number', meaning: 'さんえん' },
+  { word: '三年', type: 'number', meaning: 'さんねん' },
+  { word: '三名', type: 'number', meaning: 'さんめい' },
+  { word: '三目', type: 'number', meaning: 'みため' },
+  { word: '三手', type: 'number', meaning: 'みて' },
+  { word: '三口', type: 'number', meaning: 'みくち' },
+  { word: '三文', type: 'number', meaning: 'さんもん' },
+  { word: '三石', type: 'number', meaning: 'さんごく' },
 
   // ========== 山 ==========
   { word: '山火', type: 'general', meaning: 'やまび/やまのかじ' },
@@ -419,6 +443,14 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '四五', type: 'number', meaning: 'しご' },
   { word: '四百', type: 'number', meaning: 'よんひゃく' },
   { word: '四千', type: 'number', meaning: 'よんせん' },
+  { word: '四円', type: 'number', meaning: 'よえん' },
+  { word: '四年', type: 'number', meaning: 'よねん' },
+  { word: '四名', type: 'number', meaning: 'よんめい' },
+  { word: '四目', type: 'number', meaning: 'よんめ' },
+  { word: '四手', type: 'number', meaning: 'よて' },
+  { word: '四口', type: 'number', meaning: 'よくち' },
+  { word: '四文', type: 'number', meaning: 'よんもん' },
+  { word: '四石', type: 'number', meaning: 'よんこく' },
 
   // ========== 糸 ==========
   { word: '糸口', type: 'general', meaning: 'いとぐち/はじまり' },
@@ -454,6 +486,15 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '七八', type: 'number', meaning: 'しちはち' },
   { word: '七百', type: 'number', meaning: 'ななひゃく' },
   { word: '七千', type: 'number', meaning: 'ななせん' },
+  { word: '七円', type: 'number', meaning: 'ななえん' },
+  { word: '七年', type: 'number', meaning: 'ななねん' },
+  { word: '七本', type: 'number', meaning: 'ななほん' },
+  { word: '七名', type: 'number', meaning: 'しちめい' },
+  { word: '七目', type: 'number', meaning: 'ななめ' },
+  { word: '七手', type: 'number', meaning: 'ななて' },
+  { word: '七口', type: 'number', meaning: 'ななくち' },
+  { word: '七文', type: 'number', meaning: 'ななもん' },
+  { word: '七石', type: 'number', meaning: 'ななこく' },
 
   // ========== 車 ==========
   { word: '車中', type: 'general', meaning: 'しゃちゅう/くるまのなか' },
@@ -506,6 +547,13 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '十七', type: 'number', meaning: 'じゅうしち' },
   { word: '十八', type: 'number', meaning: 'じゅうはち' },
   { word: '十九', type: 'number', meaning: 'じゅうく' },
+  { word: '十年', type: 'number', meaning: 'じゅうねん' },
+  { word: '十名', type: 'number', meaning: 'じゅうめい' },
+  { word: '十目', type: 'number', meaning: 'じゅうめ' },
+  { word: '十手', type: 'number', meaning: 'じゅって' },
+  { word: '十口', type: 'number', meaning: 'じゅっくち' },
+  { word: '十文', type: 'number', meaning: 'じゅうもん' },
+  { word: '十石', type: 'number', meaning: 'じゅっこく' },
 
   // ========== 出 ==========
   { word: '出入', type: 'general', meaning: 'でいり/でたりはいったり' },
@@ -775,6 +823,11 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '千手', type: 'general', meaning: 'せんじゅ/たくさんのて' },
   { word: '千百', type: 'number', meaning: 'せんひゃく' },
   { word: '千火', type: 'general', meaning: 'せんか/たくさんのひ' },
+  { word: '千月', type: 'number', meaning: 'せんげつ' },
+  { word: '千名', type: 'number', meaning: 'せんめい' },
+  { word: '千目', type: 'number', meaning: 'せんめ' },
+  { word: '千口', type: 'number', meaning: 'せんくち' },
+  { word: '千文', type: 'number', meaning: 'せんもん' },
 
   // ========== 川 ==========
   { word: '川上', type: 'general', meaning: 'かわかみ/かわのうえ' },
@@ -1118,6 +1171,14 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '二山', type: 'surname', meaning: 'にやま' },
   { word: '二川', type: 'surname', meaning: 'にかわ' },
   { word: '二村', type: 'surname', meaning: 'にむら' },
+  { word: '二円', type: 'number', meaning: 'にえん' },
+  { word: '二年', type: 'number', meaning: 'にねん' },
+  { word: '二名', type: 'number', meaning: 'にめい' },
+  { word: '二目', type: 'number', meaning: 'ふため' },
+  { word: '二手', type: 'number', meaning: 'ふたて' },
+  { word: '二口', type: 'number', meaning: 'ふたくち' },
+  { word: '二文', type: 'number', meaning: 'にもん' },
+  { word: '二石', type: 'number', meaning: 'にこく' },
 
   // ========== 日 ==========
   { word: '日中', type: 'general', meaning: 'にっちゅう/ひるま' },
@@ -1202,6 +1263,14 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '八山', type: 'surname', meaning: 'やつやま' },
   { word: '八田', type: 'surname', meaning: 'はった' },
   { word: '八川', type: 'surname', meaning: 'やつかわ' },
+  { word: '八円', type: 'number', meaning: 'はちえん' },
+  { word: '八年', type: 'number', meaning: 'はちねん' },
+  { word: '八名', type: 'number', meaning: 'はちめい' },
+  { word: '八目', type: 'number', meaning: 'はちめ' },
+  { word: '八手', type: 'number', meaning: 'はって' },
+  { word: '八口', type: 'number', meaning: 'はちくち' },
+  { word: '八文', type: 'number', meaning: 'はちもん' },
+  { word: '八石', type: 'number', meaning: 'はっこく' },
 
   // ========== 百 ==========
   { word: '百千', type: 'number', meaning: 'ひゃくせん・ももち' },
@@ -1219,6 +1288,11 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '百金', type: 'general', meaning: 'ひゃっきん/ひゃくえん' },
   { word: '百火', type: 'general', meaning: 'ひゃっか/たくさんのひ' },
   { word: '百手', type: 'general', meaning: 'ひゃくて/たくさんのて' },
+  { word: '百月', type: 'number', meaning: 'ひゃくげつ' },
+  { word: '百名', type: 'number', meaning: 'ひゃくめい' },
+  { word: '百口', type: 'number', meaning: 'ひゃっくち' },
+  { word: '百文', type: 'number', meaning: 'ひゃくもん' },
+  { word: '百石', type: 'number', meaning: 'ひゃっこく' },
 
   // ========== 文 ==========
   { word: '文中', type: 'general', meaning: 'ぶんちゅう/ぶんしょうのなか' },
@@ -1360,6 +1434,14 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '六七', type: 'number', meaning: 'ろくしち' },
   { word: '六百', type: 'number', meaning: 'ろっぴゃく' },
   { word: '六千', type: 'number', meaning: 'ろくせん' },
+  { word: '六円', type: 'number', meaning: 'ろくえん' },
+  { word: '六年', type: 'number', meaning: 'ろくねん' },
+  { word: '六名', type: 'number', meaning: 'ろくめい' },
+  { word: '六目', type: 'number', meaning: 'ろくめ' },
+  { word: '六手', type: 'number', meaning: 'ろくて' },
+  { word: '六口', type: 'number', meaning: 'ろっくち' },
+  { word: '六文', type: 'number', meaning: 'ろくもん' },
+  { word: '六石', type: 'number', meaning: 'ろっこく' },
 
 ]
 
