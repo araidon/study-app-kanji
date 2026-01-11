@@ -1,0 +1,338 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 40px 20px 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  overflow-y: auto;
+}
+
+.title {
+  font-size: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-bottom: 24px;
+}
+
+/* セクション */
+.section {
+  width: 100%;
+  max-width: 340px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+}
+
+.sectionTitle {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* 画面デモ */
+.screenDemo {
+  background: #f0f4f8;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.demoInfoBar {
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.demoInfoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.demoLabel {
+  font-size: 0.65rem;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.demoValue {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 説明リスト */
+.explanationList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.explanationItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.term {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* ステップリスト */
+.stepList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.step {
+  display: flex;
+  gap: 12px;
+}
+
+.stepNumber {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffd700;
+  color: #333;
+  font-weight: bold;
+  border-radius: 50%;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepTitle {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.stepDemo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.demoCard {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  color: #333;
+}
+
+.demoCard.selected {
+  border-color: #667eea;
+  background: #eef1ff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.demoCard.hintCard {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+  }
+}
+
+.arrow {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.resultWord {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.tapIcon {
+  font-size: 0.8rem;
+  color: #ffd700;
+  padding: 4px 8px;
+  background: rgba(255, 215, 0, 0.2);
+  border-radius: 4px;
+}
+
+.stepDescription {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* 結果デモ */
+.resultDemo {
+  margin-bottom: 8px;
+}
+
+.correctBanner {
+  padding: 8px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #d4edda;
+  color: #155724;
+  border-radius: 8px;
+}
+
+/* 得点リスト */
+.scoreList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.scoreItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.scorePoints {
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #ffd700;
+  color: #333;
+  border-radius: 50%;
+}
+
+.scoreType {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+}
+
+.scoreExample {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px;
+}
+
+.scoreItem > div:last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ボタンリスト */
+.buttonList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.buttonItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.buttonIcon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+}
+
+.buttonInfo {
+  flex: 1;
+}
+
+.buttonName {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.buttonDescription {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* ヒント説明 */
+.hintExplanation {
+  text-align: center;
+}
+
+.hintDemo {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+/* 戻るボタン */
+.backButton {
+  margin-top: 16px;
+  padding: 14px 48px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #764ba2;
+  background: white;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.backButton:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}

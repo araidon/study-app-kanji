@@ -8,12 +8,13 @@ interface HintSettings {
 
 interface Props {
   onStart: (duration: number, hintSettings: HintSettings) => void
+  onShowHelp: () => void
 }
 
 const DEFAULT_MINUTES = 5
 const DEFAULT_HINT_DELAY = 20
 
-export default function TitleScreen({ onStart }: Props) {
+export default function TitleScreen({ onStart, onShowHelp }: Props) {
   const [minutes, setMinutes] = useState(DEFAULT_MINUTES)
   const [hintEnabled, setHintEnabled] = useState(true)
   const [hintDelay, setHintDelay] = useState(DEFAULT_HINT_DELAY)
@@ -77,22 +78,11 @@ export default function TitleScreen({ onStart }: Props) {
       <button className={styles.startButton} onClick={handleStart}>
         ゲームスタート
       </button>
+      <button className={styles.helpButton} onClick={onShowHelp}>
+        あそびかた
+      </button>
       <div className={styles.rules}>
-        <h2>あそびかた</h2>
-        <ul>
-          <li>カードを2まいえらんで じゅくごをつくろう</li>
-        </ul>
-        <h3>とくてん</h3>
-        <ul>
-          <li>じゅくご: 2てん</li>
-          <li>すうじ: 1てん</li>
-        </ul>
-        <h3>ボタン</h3>
-        <ul>
-          <li>🗑 すてる: 1まいすてる</li>
-          <li>🔄 ぜんぶすてる: ぜんぶいれかえ</li>
-          <li>🏁 おわる: ゲームしゅうりょう</li>
-        </ul>
+        <p className={styles.quickGuide}>カードを2まいえらんで じゅくごをつくろう!</p>
       </div>
     </div>
   )
