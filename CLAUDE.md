@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Japanese Kanji Compound Word Game (漢字熟語ゲーム) for 1st-grade elementary school students. Players select two kanji cards to form valid compound words (jukugo) within a 3-minute time limit.
+Japanese Kanji Compound Word Game (漢字熟語ゲーム) for 1st-grade elementary school students. Players select two kanji cards to form valid compound words (jukugo). Time limit is configurable from 1-10 minutes (default: 5 minutes).
 
 ## Commands
 
@@ -24,33 +24,45 @@ npm run preview  # Preview production build locally
 
 ```
 src/
-├── App.tsx           # Screen router (title → game → result)
+├── App.tsx           # Screen router (title → game → result), manages gameDuration
 ├── types.ts          # TypeScript interfaces (Card, Jukugo, GameResult)
-├── components/       # Screen components with paired CSS Modules
+├── components/
+│   ├── TitleScreen   # Time selection slider, game rules
+│   ├── GameScreen    # 4x4 card grid, action buttons
+│   └── ResultScreen  # Score display, jukugo list with meanings
 ├── data/
 │   ├── kanji.ts      # 80 grade-1 kanji characters
-│   └── jukugo.ts     # Compound word dictionary (~200+ entries) with JUKUGO_MAP
+│   └── jukugo.ts     # Compound word dictionary (~550 entries) with JUKUGO_MAP
 └── hooks/
     └── useGame.ts    # Core game engine (timer, scoring, card management)
 ```
 
 **Key patterns:**
-- Game logic isolated in `useGame` hook, not in components
+- Game logic isolated in `useGame(onGameEnd, gameDuration)` hook
 - Screen navigation via React state in App.tsx (no router)
 - Jukugo lookup uses Map for O(1) validation
+- Time selection passed from TitleScreen → App → GameScreen → useGame
 
 ## Game Rules Reference
 
+- **Time**: 1-10 minutes (configurable via slider, default 5 minutes)
+- **Hand size**: 16 cards (4x4 grid)
 - **Scoring**: General jukugo = 2pts, Surname/Number = 1pt, Reverse bonus = +2pts
-- **Constants**: `GAME_DURATION = 180` seconds, `HAND_SIZE = 16` cards
 - **Jukugo types**: `'general' | 'surname' | 'number'`
 - **All kanji must come from the 80-character set** in `data/kanji.ts`
 
-## Mobile Optimizations
+## Action Buttons
 
-- `100dvh` for iOS Safari dynamic viewport
+- 🗑 すてる: Discard 1 selected card
+- 🔄 ぜんぶすてる: Discard all cards and redraw
+- 🏁 おわる: End game immediately
+
+## Mobile Optimizations (iPhone Safari)
+
+- `min-height: 100dvh` for dynamic viewport
 - Safe area insets for notch handling
 - Touch optimizations (no overscroll, no highlight, no select)
+- Scrollable title screen for smaller devices
 
 ## Deployment
 
