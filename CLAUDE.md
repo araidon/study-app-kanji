@@ -42,7 +42,7 @@ src/
 ## Game Rules Reference
 
 - **Scoring**: General jukugo = 2pts, Surname/Number = 1pt, Reverse bonus = +2pts
-- **Constants**: `GAME_DURATION = 180` seconds, `HAND_SIZE = 10` cards
+- **Constants**: `GAME_DURATION = 180` seconds, `HAND_SIZE = 16` cards
 - **Jukugo types**: `'general' | 'surname' | 'number'`
 - **All kanji must come from the 80-character set** in `data/kanji.ts`
 
