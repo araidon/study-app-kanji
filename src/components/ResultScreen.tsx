@@ -45,10 +45,10 @@ export default function ResultScreen({ result, onPlayAgain, onBackToTitle }: Pro
 
       <div className={styles.buttonArea}>
         <button className={styles.playAgainButton} onClick={onPlayAgain}>
-          もういちど あそぶ
+          もういちど
         </button>
         <button className={styles.backToTitleButton} onClick={onBackToTitle}>
-          タイトルにもどる
+          タイトルへ
         </button>
       </div>
     </div>
