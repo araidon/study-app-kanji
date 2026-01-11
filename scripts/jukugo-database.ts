@@ -976,6 +976,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '文人', meaning: 'ぶんじん/ぶんがくをするひと', type: 'general' },
   { word: '文名', meaning: 'ぶんめい/ぶんがくのなまえ', type: 'general' },
   { word: '文山', meaning: 'ぶんざん/たくさんのぶんしょう', type: 'general' },
+  { word: '文学', meaning: 'ぶんがく/ことばのげいじゅつ', type: 'general' },
   { word: '文田', meaning: 'ふみた', type: 'surname' },
   { word: '文川', meaning: 'ふみかわ', type: 'surname' },
 

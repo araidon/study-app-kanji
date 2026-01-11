@@ -1,7 +1,13 @@
-import type { Jukugo } from '../types'
-
 // Auto-generated from scripts/jukugo-database.ts
-// Total entries: 1038
+// Do not edit manually
+
+export type JukugoType = 'general' | 'surname' | 'number'
+
+export interface Jukugo {
+  word: string
+  meaning: string
+  type: JukugoType
+}
 
 export const JUKUGO_LIST: Jukugo[] = [
   { word: '一円', meaning: 'いちえん', type: 'number' },
@@ -828,6 +834,7 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '文人', meaning: 'ぶんじん/ぶんがくをするひと', type: 'general' },
   { word: '文名', meaning: 'ぶんめい/ぶんがくのなまえ', type: 'general' },
   { word: '文山', meaning: 'ぶんざん/たくさんのぶんしょう', type: 'general' },
+  { word: '文学', meaning: 'ぶんがく/ことばのげいじゅつ', type: 'general' },
   { word: '文田', meaning: 'ふみた', type: 'surname' },
   { word: '文川', meaning: 'ふみかわ', type: 'surname' },
   { word: '木立', meaning: 'こだち/きがたっている', type: 'general' },
@@ -1044,7 +1051,7 @@ export const JUKUGO_LIST: Jukugo[] = [
   { word: '千文', meaning: 'せんもん', type: 'number' },
 ]
 
-// Map for O(1) lookup
 export const JUKUGO_MAP = new Map<string, Jukugo>(
   JUKUGO_LIST.map(j => [j.word, j])
 )
+
