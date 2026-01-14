@@ -76,6 +76,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '音川', meaning: 'おとかわ', type: 'surname' },
 
   // ===== 下 =====
+  { word: '下見', meaning: 'したみ/まえもってみる', type: 'general' },
   { word: '下火', meaning: 'したび/いきおいがよわまる', type: 'general' },
   { word: '下校', meaning: 'げこう/がっこうからかえる', type: 'general' },
   { word: '下山', meaning: 'げざん/やまからおりる', type: 'general' },
@@ -290,6 +291,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '三木', meaning: 'みき', type: 'surname' },
   { word: '三百', meaning: 'さんびゃく', type: 'number' },
   { word: '三千', meaning: 'さんぜん', type: 'number' },
+  { word: '三男', meaning: 'さんなん/さんばんめのむすこ', type: 'general' },
 
   // ===== 山 =====
   { word: '山火', meaning: 'やまび/やまのかじ', type: 'general' },
@@ -364,6 +366,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '七千', meaning: 'ななせん', type: 'number' },
 
   // ===== 車 =====
+  { word: '車名', meaning: 'しゃめい/くるまのせいひんめい', type: 'general' },
   { word: '車中', meaning: 'しゃちゅう/くるまのなか', type: 'general' },
   { word: '車力', meaning: 'しゃりき/くるまをひくちから', type: 'general' },
   { word: '車山', meaning: 'くるまやま', type: 'surname' },
@@ -655,6 +658,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '川虫', meaning: 'かわむし/かわのむし', type: 'general' },
 
   // ===== 先 =====
+  { word: '先見', meaning: 'せんけん/さきをみとおす', type: 'general' },
   { word: '先人', meaning: 'せんじん/むかしのひと', type: 'general' },
   { word: '先手', meaning: 'せんて/さきにうごく', type: 'general' },
   { word: '先月', meaning: 'せんげつ/まえのつき', type: 'general' },
@@ -669,6 +673,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '先金', meaning: 'さきがね/まえばらい', type: 'general' },
 
   // ===== 早 =====
+  { word: '早見', meaning: 'はやみ/すばやくみる', type: 'general' },
   { word: '早出', meaning: 'はやで/はやくしゅっきんする', type: 'general' },
   { word: '早口', meaning: 'はやくち/はやくしゃべる', type: 'general' },
   { word: '早足', meaning: 'はやあし/はやくあるく', type: 'general' },
@@ -754,6 +759,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '大竹', meaning: 'おおたけ/ひろしまけんのし', type: 'general' },
 
   // ===== 男 =====
+  { word: '男気', meaning: 'おとこぎ/おとこらしいきもち', type: 'general' },
   { word: '男子', meaning: 'だんし/おとこのこ', type: 'general' },
   { word: '男女', meaning: 'だんじょ/おとことおんな', type: 'general' },
   { word: '男手', meaning: 'おとこで/おとこのちから', type: 'general' },
@@ -898,6 +904,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '日火', meaning: 'にちか/にちかようび', type: 'general' },
 
   // ===== 入 =====
+  { word: '入校', meaning: 'にゅうこう/がっこうにはいる', type: 'general' },
   { word: '入口', meaning: 'いりぐち/はいるところ', type: 'general' },
   { word: '入学', meaning: 'にゅうがく/がっこうにはいる', type: 'general' },
   { word: '入金', meaning: 'にゅうきん/おかねをいれる', type: 'general' },
@@ -1021,6 +1028,7 @@ export const JUKUGO_DATABASE: JukugoEntry[] = [
   { word: '本金', meaning: 'ほんきん/もとのおかね', type: 'general' },
 
   // ===== 名 =====
+  { word: '名車', meaning: 'めいしゃ/すぐれたせいのうのくるま', type: 'general' },
   { word: '名人', meaning: 'めいじん/じょうずなひと', type: 'general' },
   { word: '名字', meaning: 'みょうじ/かぞくのなまえ', type: 'general' },
   { word: '名月', meaning: 'めいげつ/きれいなつき', type: 'general' },
